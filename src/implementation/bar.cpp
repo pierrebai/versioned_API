@@ -18,6 +18,6 @@ namespace your_api_name_here::implementation
    double bar_t::do_bar(double x, const char* name)
    {
       std::cout << "bar v1 " << std::quoted(my_name) << " do_bar(" << x << ", " << std::quoted(name ? name : "") << ") then calling my_foo: ";
-      return x * x * my_foo.do_virtual(x);
+      return x * x * my_foo.do_virtual(x, 0.);
    }
 }

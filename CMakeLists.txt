@@ -21,7 +21,8 @@ add_library(your_api_name_here SHARED
 
    include/your_api_name_here/v1/bar.h                   src/v1/bar.cpp
    include/your_api_name_here/v1/foo.h                   src/v1/foo.cpp
-   
+   include/your_api_name_here/v2/foo.h                   src/v2/foo.cpp
+
    private/your_api_name_here/implementation/bar.h       src/implementation/bar.cpp
    private/your_api_name_here/implementation/foo.h       src/implementation/foo.cpp
    private/your_api_name_here/implementation/implementation.h
@@ -35,6 +36,14 @@ source_group("Header Files/v1" FILES
 source_group("Source Files/v1" FILES
    src/v1/bar.cpp
    src/v1/foo.cpp
+)
+
+source_group("Header Files/v2" FILES
+   include/your_api_name_here/v2/foo.h
+)
+
+source_group("Source Files/v2" FILES
+   src/v2/foo.cpp
 )
 
 source_group("Header Files/implementation" FILES
@@ -56,5 +65,7 @@ target_include_directories(your_api_name_here PRIVATE
 )
 
 add_subdirectory(tests/v1)
+add_subdirectory(tests/v2)
 
 add_subdirectory(examples/using_v1)
+add_subdirectory(examples/using_v2)

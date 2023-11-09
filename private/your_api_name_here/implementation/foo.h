@@ -18,14 +18,17 @@ namespace your_api_name_here::implementation
 
       int get_value() const;
 
-      // Add the count to the internal count and return the total.
-      int do_foo(int count);
+      // Both of these functions changed in v2.
 
-      // Return x times 2.
-      virtual double do_virtual(double x);
+      // Add the count to the internal count and return the total.
+      int do_foo(int count, const char* name);
+
+      // Return x times 2 plus y.
+      virtual double do_virtual(double x, double y);
 
    private:
       std::string my_name;
       int my_value = 0;
+      double my_y = 0;
    };
 }

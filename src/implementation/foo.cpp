@@ -15,16 +15,17 @@ namespace your_api_name_here::implementation
 
    int foo_t::get_value() const { return my_value; }
 
-   int foo_t::do_foo(int count)
+   int foo_t::do_foo(int count, const char* name)
    {
       my_value += count;
-      std::cout << "foo v1 " << std::quoted(my_name) << " do_foo(" << count << ") with my value = " << my_value << std::endl;
+      std::cout << "foo v2 " << std::quoted(my_name) << " do_foo(" << count << ", " << std::quoted(name ? name : "") << ") with my value = " << my_value << std::endl;
       return my_value;
    }
 
-   double foo_t::do_virtual(double x)
+   double foo_t::do_virtual(double x, double y)
    {
-      std::cout << "foo v1 " << std::quoted(my_name) << " do_virtual(" << x << ")" << std::endl;
-      return x * 2.;
+      my_y = y;
+      std::cout << "foo v2 " << std::quoted(my_name) << " do_virtual(" << x << ", " << y << ")" << std::endl;
+      return x * 2. + y;
    }
 }

@@ -1,7 +1,7 @@
 # Versioned API
 
-Version one of the versioned API. This version sets up the API of the foo class
-and the bar class.
+Version two of the versioned API. This version changes the API of the foo class
+by modifying the member functions parameters and adding a new data member.
 
 ## API Structure
 
@@ -49,21 +49,16 @@ the proper pointer castings. It supports:
     - Access the implementation: self().
     - Wrapping an implementation into a versioned API: wrap().
 
-### implementation.h
-
-The base class of the implementation side. Tracks the reference count of how
-many API instances are using the same implementation.
-
 ### foo.h
 
-A class containing a few member functions, including one virtual. This will
-show in a future version that function calls, even virtual, continue to work
-even if their parameters change or if new virtual functions are added. This is
-not extraordinary given that the implementation is hidden behind a façade and
-that each API version has a different façade.
+A class containing a few member functions, including one virtual. This shows
+that function calls, even virtual, continue to work even if their parameters
+change or if new virtual functions are added. This is not extraordinary given
+that the implementation is hidden behind a façade and that each API version has
+a different façade.
 
 ### bar.h
 
 A class that contains a foo and calls it within one of its member function.
-This will demonstrate that even containment will work with versioned API, by
-wrapping the return value.
+This demonstrates that even containment works with versioned API, by wrapping
+the return value.
